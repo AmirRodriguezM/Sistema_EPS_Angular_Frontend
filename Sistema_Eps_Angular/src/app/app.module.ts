@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ListPersonasComponent } from './components/list-personas/list-personas.component';
+import { AgregarEditarPersonaComponent } from './components/agregar-editar-persona/agregar-editar-persona.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListPersonasComponent,
+    AgregarEditarPersonaComponent
   ],
   imports: [
     BrowserModule,
