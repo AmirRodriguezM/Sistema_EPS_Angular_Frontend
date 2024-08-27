@@ -1,0 +1,27 @@
+.custom-toolbar {
+    background-color: #3f51b5;
+    /* Color de fondo */
+    color: white;
+    /* Color del texto */
+}
+
+table {
+    width: 100% !important;
+    background-color: white !important;
+    color: #333 !important;
+    /* Color negro oscuro para el texto */
+    margin: 0 auto;
+    /* Centra la tabla horizontalmente */
+    border-collapse: collapse;
+    /* Opcional: elimina los espacios entre las celdas */
+}
+
+table td,
+table th {
+    color: #333 !important;
+    /* Asegúrate de que todas las celdas tengan el color correcto */
+    text-align: center;
+    /* Opcional: centra el texto en las celdas */
+    padding: 8px;
+    /* Añade un poco de espacio dentro de las celdas */
+}
