@@ -1,1 +1,48 @@
-<p>agregar-editar-persona works!</p>
+<h2 mat-dialog-title>Agregar Afiliado</h2>
+
+<mat-dialog-content>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Ingrese el nombre del afiliado">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input matInput placeholder="Ingrese el apellido del afiliado">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Número de Identificación</mat-label>
+        <input matInput placeholder="Ingrese el número de identificación del afiliado">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Estado del afiliado</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let item of estadoAfiliadoarray" [value]="item">
+                {{item}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select [(ngModel)]="selectedTipoDocumento" placeholder="Seleccione el tipo de documento">
+            <mat-option value="C.C.">Cédula de Ciudadanía</mat-option>
+            <mat-option value="C.E.">Cédula de Extranjería</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Fecha Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+    </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button (click)="cancelar()" mat-button>Cancelar</button>
+    <button mat-button cdkFocusInitial>Guardar</button>
+</mat-dialog-actions>

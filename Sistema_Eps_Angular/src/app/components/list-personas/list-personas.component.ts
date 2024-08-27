@@ -1,8 +1,11 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { Persona } from '../../interfaces/persona';
+
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { AgregarEditarPersonaComponent } from '../agregar-editar-persona/agregar-editar-persona.component';
+import { Persona } from '../../../interfaces/persona';
 
 
 const listarAfiliados: Persona[] = [
@@ -77,7 +80,7 @@ export class ListPersonasComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource(listarAfiliados);
   }
   
@@ -99,6 +102,17 @@ export class ListPersonasComponent implements AfterViewInit {
     }
   }
 
+  addEditAfiliado(){
+    const dialogRef = this.dialog.open(AgregarEditarPersonaComponent, {
 
+      width: '550px',
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog result `);
+    
+  });
+  
+  }
 }
 

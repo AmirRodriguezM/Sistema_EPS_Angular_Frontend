@@ -29,7 +29,7 @@ table th {
 .mat-mdc-form-field {
     font-size: 14px;
     width: 50%;
-    margin-right: 585px;
+    margin-right: 598px;
 }
 
 .material-symbols-outlined {
@@ -43,6 +43,9 @@ table th {
     /* Centers the content vertically */
 }
 
+
+/* Botones*/
+
 .btnDelete {
     color: red;
     /* Red color for delete button */
@@ -51,6 +54,7 @@ table th {
 .btnNuevo {
     background-color: rgb(27, 180, 27) !important;
     color: white !important;
+    margin-top: 2px !important;
 }
 
 .btnEdit {

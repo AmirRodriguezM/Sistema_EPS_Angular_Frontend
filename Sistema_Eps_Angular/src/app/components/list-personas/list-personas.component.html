@@ -15,7 +15,9 @@
 
         </mat-form-field>
 
-        <button mat-raised-button class="btnNuevo">Nuevo</button>
+        <button mat-fab aria-label="add" class="btnNuevo" matTooltip="Agregar" (click)="addEditAfiliado()">
+            <span class="material-symbols-outlined">add</span>
+        </button>
 
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z9" matSort>
 
