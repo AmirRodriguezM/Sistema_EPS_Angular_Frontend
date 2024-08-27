@@ -71,7 +71,7 @@ const listarAfiliados: Persona[] = [
 })
 export class ListPersonasComponent implements AfterViewInit {
   
-  displayedColumns: string[] = ['nombreAfiliado', 'apellidoAfiliado', 'cedulaAfiliado', 'estadoAfiliado', 'tipoDocumentoAfiliado', 'fechaNacimientoAfiliado'];
+  displayedColumns: string[] = ['nombreAfiliado', 'apellidoAfiliado', 'cedulaAfiliado', 'estadoAfiliado', 'tipoDocumentoAfiliado', 'fechaNacimientoAfiliado', 'accionesAfiliados'];
   dataSource: MatTableDataSource<Persona>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

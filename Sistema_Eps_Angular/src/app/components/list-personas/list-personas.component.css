@@ -28,5 +28,34 @@ table th {
 
 .mat-mdc-form-field {
     font-size: 14px;
-    width: 100%;
+    width: 50%;
+    margin-right: 585px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+}
+
+.centered-content {
+    justify-content: center;
+    /* Centers the content horizontally */
+    align-items: center;
+    /* Centers the content vertically */
+}
+
+.btnDelete {
+    color: red;
+    /* Red color for delete button */
+}
+
+.btnNuevo {
+    background-color: rgb(27, 180, 27) !important;
+    color: white !important;
+}
+
+.btnEdit {
+    color: blue;
+    /* Green color for edit button */
+    margin-right: 16px;
+    /* Add margin to the right of the edit button */
 }
