@@ -5,45 +5,46 @@
 <mat-card appearance="outlined">
     <mat-card-content>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z9">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput placeholder="Buscar" (keyup)="applyFilter($event)" #input autocomplete="off">
+        </mat-form-field>
 
-            <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z9" matSort>
 
-            <!-- Position Column -->
             <ng-container matColumnDef="nombreAfiliado">
-                <th mat-header-cell *matHeaderCellDef> Nombre del Afiliado </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Afiliado </th>
                 <td mat-cell *matCellDef="let element"> {{element.nombreAfiliado}} </td>
             </ng-container>
 
             <ng-container matColumnDef="apellidoAfiliado">
-                <th mat-header-cell *matHeaderCellDef> Apellido del Afiliado </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido del Afiliado </th>
                 <td mat-cell *matCellDef="let element"> {{element.apellidoAfiliado}} </td>
             </ng-container>
 
             <ng-container matColumnDef="cedulaAfiliado">
-                <th mat-header-cell *matHeaderCellDef> Cédula del Afiliado </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Cédula del Afiliado </th>
                 <td mat-cell *matCellDef="let element"> {{element.cedulaAfiliado}} </td>
             </ng-container>
 
             <ng-container matColumnDef="estadoAfiliado">
-                <th mat-header-cell *matHeaderCellDef> Estado del Afiliado </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado del Afiliado </th>
                 <td mat-cell *matCellDef="let element"> {{element.estadoAfiliado}} </td>
             </ng-container>
 
             <ng-container matColumnDef="tipoDocumentoAfiliado">
-                <th mat-header-cell *matHeaderCellDef> Tipo de documento </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de documento </th>
                 <td mat-cell *matCellDef="let element"> {{element.tipoDocumentoAfiliado}} </td>
             </ng-container>
 
             <ng-container matColumnDef="fechaNacimientoAfiliado">
-                <th mat-header-cell *matHeaderCellDef> Fecha de Nacimiento </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Nacimiento </th>
                 <td mat-cell *matCellDef="let element"> {{element.fechaNacimientoAfiliado | date:'d MMMM y' }} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </mat-card-content>
 </mat-card>

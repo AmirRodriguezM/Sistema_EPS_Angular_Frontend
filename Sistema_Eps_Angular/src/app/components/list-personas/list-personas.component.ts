@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Persona } from '../../interfaces/persona';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 
 const listarAfiliados: Persona[] = [
@@ -57,17 +60,45 @@ const listarAfiliados: Persona[] = [
     cedulaAfiliado: 1012345678, 
     estadoAfiliado: "Activo", 
     tipoDocumentoAfiliado: "C.C.", 
-    fechaNacimientoAfiliado: new Date("1982-08-17") }
+    fechaNacimientoAfiliado: new Date("1982-08-17") },
 ];
 
 @Component({
   selector: 'app-list-personas',
   templateUrl: './list-personas.component.html',
   styleUrl: './list-personas.component.css'
+  
 })
-export class ListPersonasComponent {
-
+export class ListPersonasComponent implements AfterViewInit {
+  
   displayedColumns: string[] = ['nombreAfiliado', 'apellidoAfiliado', 'cedulaAfiliado', 'estadoAfiliado', 'tipoDocumentoAfiliado', 'fechaNacimientoAfiliado'];
-  dataSource = listarAfiliados;
+  dataSource: MatTableDataSource<Persona>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor() {
+    this.dataSource = new MatTableDataSource(listarAfiliados);
+  }
+  
+  ngAfterViewInit() {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
+      this.dataSource.paginator._intl.itemsPerPageLabel = "Items por página"
+      this.dataSource.paginator._intl.nextPageLabel= "Siguiente pág."
+      this.dataSource.paginator._intl.previousPageLabel = "Anterior pág."
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
 
 }
+
