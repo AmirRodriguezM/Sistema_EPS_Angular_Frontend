@@ -19,6 +19,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule } from '@angular/forms'; // Asegúrate de importar FormsModule
 import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatDatepickerModule,
     FormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    BrowserAnimationsModule
   ],
   exports:[
     MatSlideToggleModule,
@@ -60,7 +63,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatDatepickerModule,
     FormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    BrowserAnimationsModule
   ]
 })
 export class SharedModule { }
